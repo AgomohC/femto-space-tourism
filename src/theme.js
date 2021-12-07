@@ -1,0 +1,55 @@
+import { createTheme } from "@material-ui/core";
+
+const theme = createTheme({
+   typography: {
+      fontFamily: [
+         "Barlow Condensed",
+         "Roboto",
+         "Helvetica",
+         "Arial",
+         "sans-serif",
+      ].join(","),
+      h1: {
+         fontFamily: ["Bellefair", "serif"].join(","),
+         fontSize: "150px",
+      },
+      h2: {
+         fontFamily: ["Bellefair", "serif"].join(","),
+         fontSize: "100px",
+      },
+      h3: {
+         fontFamily: ["Bellefair", "serif"].join(","),
+         fontSize: "56px",
+      },
+      h4: {
+         fontFamily: ["Bellefair", "serif"].join(","),
+         fontSize: "32px",
+      },
+      h5: {
+         fontSize: "28px",
+         letterSpacing: 4.75,
+      },
+      h6: {
+         fontSize: "28px",
+         fontFamily: ["Bellefair", "serif"].join(","),
+      },
+   },
+   subtitle1: {
+      fontSize: "14px",
+      letterSpacing: 2.35,
+   },
+   subtitle2: {
+      letterSpacing: 2.7,
+   },
+   palette: {
+      text: {
+         primary: "#ffffff",
+         secondary: "d0d6f9",
+      },
+      primary: {
+         main: "0b0d117",
+      },
+   },
+});
+
+export default theme;
