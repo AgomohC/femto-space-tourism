@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import MenuIcon from "@material-ui/icons/Menu";
+import CloseIcon from "@material-ui/icons/Close";
 import logo from "../assets/shared/logo.svg";
 import {
    AppBar,
@@ -89,6 +90,9 @@ const useStyles = makeStyles((theme) => ({
          minWidth: "50%",
       },
    },
+   navLinksMobile: {
+      marginTop: theme.spacing(10),
+   },
    linksDiv: {
       height: "100%",
       backgroundColor: "transparent",
@@ -99,10 +103,13 @@ const useStyles = makeStyles((theme) => ({
    },
    link: {
       textDecoration: "none",
-      color: "inherit",
+      color: "#fff",
       "&:hover": {
          borderBottom: "2px solid #fff",
       },
+   },
+   linkMobile: {
+      marginBottom: theme.spacing(4),
    },
    linkSpan: {
       fontWeight: "bold",
@@ -111,6 +118,11 @@ const useStyles = makeStyles((theme) => ({
       [theme.breakpoints.up("lg")]: {
          display: "inline-block",
       },
+   },
+   linkSpanMobile: {
+      fontWeight: "bold",
+      marginRight: theme.spacing(1),
+      display: "inline-block",
    },
    select: {
       position: "absolute",
@@ -126,6 +138,21 @@ const useStyles = makeStyles((theme) => ({
    },
    mobileMenu: {
       height: "100vh",
+      backgroundColor: alpha("#0b0d17", 0.15),
+      [theme.breakpoints.up("sm")]: {
+         display: "none",
+      },
+      position: "absolute",
+      top: "0",
+      right: "0",
+      minWidth: "254px",
+      width: "68%",
+      padding: "24px",
+   },
+   closeButton: {
+      position: "absolute",
+      top: "24px",
+      right: "24px",
    },
 }));
 
@@ -192,13 +219,62 @@ const Header = () => {
                disableRipple
                disableFocusRipple
                color="inherit"
-               onClick={() => setShowAside(!showAside)}
+               onClick={() => setShowAside(true)}
             >
                <MenuIcon color="white" />
             </IconButton>
          </header>
          {showAside && (
-            <Box component="aside" className={classes.mobileMenu}></Box>
+            <Box component="aside" className={classes.mobileMenu}>
+               <IconButton
+                  disableRipple
+                  disableFocusRipple
+                  onClick={() => setShowAside(false)}
+                  className={classes.closeButton}
+               >
+                  <CloseIcon />
+               </IconButton>
+               <Box className={classes.navLinksMobile}>
+                  <div>
+                     <Link to="/" className={classes.link}>
+                        <Typography
+                           variant="subtitle2"
+                           className={classes.linkMobile}
+                        >
+                           <span className={classes.linkSpanMobile}>00</span>
+                           Home
+                        </Typography>
+                     </Link>
+                     <Link to="/crew" className={classes.link}>
+                        <Typography
+                           variant="subtitle2"
+                           className={classes.linkMobile}
+                        >
+                           <span className={classes.linkSpanMobile}>01</span>
+                           Crew
+                        </Typography>
+                     </Link>
+                     <Link to="/destination" className={classes.link}>
+                        <Typography
+                           variant="subtitle2"
+                           className={classes.linkMobile}
+                        >
+                           <span className={classes.linkSpanMobile}>02</span>
+                           Destination
+                        </Typography>
+                     </Link>
+                     <Link to="/technology" className={classes.link}>
+                        <Typography
+                           variant="subtitle2"
+                           className={classes.linkMobile}
+                        >
+                           <span className={classes.linkSpanMobile}>03</span>
+                           Technology
+                        </Typography>
+                     </Link>
+                  </div>
+               </Box>
+            </Box>
          )}
       </>
    );
