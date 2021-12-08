@@ -33,21 +33,31 @@ const theme = createTheme({
          fontSize: "28px",
          fontFamily: ["Bellefair", "serif"].join(","),
       },
-   },
-   subtitle1: {
-      fontSize: "14px",
-      letterSpacing: 2.35,
-   },
-   subtitle2: {
-      letterSpacing: 2.7,
+      subtitle1: {
+         fontSize: "14px",
+         letterSpacing: 2.35,
+      },
+      subtitle2: {
+         fontSize: "16px",
+         letterSpacing: 2.7,
+      },
    },
    palette: {
       text: {
          primary: "#ffffff",
-         secondary: "d0d6f9",
+         secondary: "#d0d6f9",
       },
       primary: {
-         main: "0b0d117",
+         main: "#0b0d17",
+      },
+   },
+   breakpoints: {
+      values: {
+         xs: 0,
+         sm: 576,
+         md: 768,
+         lg: 1124,
+         xl: 1440,
       },
    },
 });

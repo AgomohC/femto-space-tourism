@@ -9,9 +9,9 @@ import { Switch, Route } from "react-router-dom";
 const App = () => {
    return (
       <Switch>
-         <Header></Header>
-         <Route exact path="/" render={(props) => <Home {...props} />} />{" "}
-         <Route exact path="/crew" render={(props) => <Crew {...props} />} />{" "}
+         <Header />
+         <Route exact path="/" render={(props) => <Home {...props} />} />
+         <Route exact path="/crew" render={(props) => <Crew {...props} />} />
          <Route
             exact
             path="/destination"
