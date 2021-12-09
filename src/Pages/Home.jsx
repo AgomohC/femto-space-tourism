@@ -2,11 +2,12 @@ import React from "react";
 import desktopImg from "../assets/home/background-home-desktop.jpg";
 import tabletImg from "../assets/home/background-home-tablet.jpg";
 import mobileImg from "../assets/home/background-home-mobile.jpg";
-import { makeStyles, Box } from "@material-ui/core";
-
+import { makeStyles, Grid, Typography } from "@material-ui/core";
+import { Link } from "react-router-dom";
 const useStyles = makeStyles((theme) => ({
    background: {
-      height: "100vh",
+      height: "100%",
+      width: "100%",
       backgroundImage: `url(${mobileImg})`,
       [theme.breakpoints.up("sm")]: {
          backgroundImage: `url(${tabletImg})`,
@@ -23,37 +24,89 @@ const useStyles = makeStyles((theme) => ({
       left: 0,
       zIndex: 1,
    },
+   container: {
+      display: "flex",
+      alignItems: "flex-end",
+      justifyContent: "space-between",
+      marginTop: "200px",
+      marginLeft: "auto",
+      marginRight: "auto",
+   },
+   textContainer: {
+      width: "450px",
+   },
+   button: {
+      borderRadius: "50%",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      backgroundColor: "#fff",
+      height: "274px",
+      width: "274px",
+      "&:hover": {
+         cursor: "pointer",
+         boxShadow: "0 0 0 64px rgba(255, 255, 255, 0.05)",
+      },
+   },
+   bodyText: {
+      marginBottom: theme.spacing(3),
+      marginTop: theme.spacing(2),
+      color: "#fff",
+   },
+   blue: {
+      color: theme.palette.text.secondary,
+   },
+   end: {
+      justifyContent: "flex-end",
+      display: "flex",
+   },
+   link: {
+      textDecoration: "none",
+   },
 }));
 
 const Home = () => {
    const classes = useStyles();
 
    return (
-      <Box className={classes.background}>
-         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi ipsum
-         porro veniam quibusdam dolor officiis at nesciunt a ea quasi.lorem200
-         Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil est
-         blanditiis ea magnam. Atque, consequuntur reiciendis minus et cumque
-         commodi non! Laudantium, dignissimos officia sint praesentium fugit at
-         eum quis eius ipsam est voluptatem neque ea itaque quae in minima iure
-         aliquam nesciunt maxime possimus odit quibusdam illum illo doloribus.
-         Error obcaecati a iure ipsum eos repudiandae mollitia nostrum dolore
-         eveniet officia iusto temporibus, culpa impedit voluptate. Incidunt
-         repellendus ex perferendis minus possimus, natus aliquam fugiat.
-         Consectetur provident nostrum tempora aspernatur magni nemo rem ab,
-         neque numquam eveniet iure impedit similique tempore accusamus, placeat
-         quos dolores delectus non! Delectus aliquid nobis ab eligendi et
-         veritatis impedit esse animi amet optio nisi harum omnis nesciunt minus
-         tempora dicta, quod deleniti sed quos consequuntur vitae! Quidem
-         aliquam temporibus eos ipsum cupiditate quisquam! Commodi, voluptates.
-         Sapiente maiores quos repellendus quisquam nisi explicabo cupiditate
-         hic eius maxime blanditiis non ex magni quam corporis esse vitae ab
-         assumenda id nostrum modi, at enim ullam commodi! Odit sunt numquam
-         corporis dicta debitis architecto officia quis quia ex eaque maiores
-         saepe nemo molestias provident illum eos alias, facilis, rem accusamus.
-         Quo dolore esse dolor corrupti, voluptatum iusto debitis, cumque quis
-         non vitae harum similique beatae iste quasi.
-      </Box>
+      <div className={classes.background}>
+         <Grid container spacing={2} xs={10} className={classes.container}>
+            <Grid item xs={10} sm={6}>
+               <div className={classes.textContainer}>
+                  <Typography
+                     variant="h5"
+                     className={classes.blue}
+                     color="secondary"
+                  >
+                     SO, YOU WANT TO TRAVEL TO
+                  </Typography>
+                  <Typography
+                     variant="h1"
+                     component="h5"
+                     className={classes.bodyText}
+                  >
+                     SPACE
+                  </Typography>
+
+                  <Typography variant="subtitle1" className={classes.blue}>
+                     Lets face it; if you want to go to space, you might as well
+                     genuinely go to outer space and not hover kind of on the
+                     edge of it. Well sit back, and relax because we'll give you
+                     a truly out of this world experience!
+                  </Typography>
+               </div>
+            </Grid>
+            <Grid item xs={10} sm={6} className={classes.end}>
+               <Link to="/destination" className={classes.link}>
+                  <div className={classes.button}>
+                     <Typography variant="h6" color="primary">
+                        EXPLORE
+                     </Typography>
+                  </div>
+               </Link>
+            </Grid>
+         </Grid>
+      </div>
    );
 };
 

@@ -228,25 +228,25 @@ const Header = () => {
                      <Link to="/" className={classes.link}>
                         <Typography variant="subtitle2" color="initial">
                            <span className={classes.linkSpan}>00</span>
-                           Home
+                           HOME
                         </Typography>
                      </Link>
                      <Link to="/crew" className={classes.link}>
                         <Typography variant="subtitle2" color="initial">
                            <span className={classes.linkSpan}>01</span>
-                           Crew
+                           CREW
                         </Typography>
                      </Link>
                      <Link to="/destination" className={classes.link}>
                         <Typography variant="subtitle2" color="initial">
                            <span className={classes.linkSpan}>02</span>
-                           Destination
+                           DESTINATION
                         </Typography>
                      </Link>
                      <Link to="/technology" className={classes.link}>
                         <Typography variant="subtitle2" color="initial">
                            <span className={classes.linkSpan}>03</span>
-                           Technology
+                           TECHNOLOGY
                         </Typography>
                      </Link>
                   </div>
@@ -296,7 +296,7 @@ const Header = () => {
                               className={classes.linkMobile}
                            >
                               <span className={classes.linkSpanMobile}>00</span>
-                              Home
+                              HOME
                            </Typography>
                         </Link>
                         <Link
@@ -309,7 +309,7 @@ const Header = () => {
                               className={classes.linkMobile}
                            >
                               <span className={classes.linkSpanMobile}>01</span>
-                              Crew
+                              CREW
                            </Typography>
                         </Link>
                         <Link
@@ -322,7 +322,7 @@ const Header = () => {
                               className={classes.linkMobile}
                            >
                               <span className={classes.linkSpanMobile}>02</span>
-                              Destination
+                              DESTINATION
                            </Typography>
                         </Link>
                         <Link
@@ -335,7 +335,7 @@ const Header = () => {
                               className={classes.linkMobile}
                            >
                               <span className={classes.linkSpanMobile}>03</span>
-                              Technology
+                              TECHNOLOGY
                            </Typography>
                         </Link>
                      </div>
