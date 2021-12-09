@@ -1,5 +1,6 @@
 import React from "react";
 import desktopImg from "../assets/home/background-home-desktop.jpg";
+
 import tabletImg from "../assets/home/background-home-tablet.jpg";
 import mobileImg from "../assets/home/background-home-mobile.jpg";
 import { makeStyles, Grid, Typography } from "@material-ui/core";
@@ -27,10 +28,11 @@ const useStyles = makeStyles((theme) => ({
    container: {
       marginLeft: "auto",
       marginRight: "auto",
-      marginTop: "200px",
+      marginTop: "100px",
 
       [theme.breakpoints.up("sm")]: {
          justifyContent: "center",
+         marginTop: "200px",
       },
       [theme.breakpoints.up("lg")]: {
          display: "flex",
@@ -39,10 +41,14 @@ const useStyles = makeStyles((theme) => ({
       },
    },
    textContainer: {
-      width: "450px",
       textAlign: "center",
+      width: "80vw",
       marginLeft: "auto",
       marginRight: "auto",
+      [theme.breakpoints.up("sm")]: {
+         width: "450px",
+      },
+
       [theme.breakpoints.up("lg")]: {
          textAlign: "left",
          marginLeft: 0,
@@ -55,17 +61,26 @@ const useStyles = makeStyles((theme) => ({
       justifyContent: "center",
       alignItems: "center",
       backgroundColor: "#fff",
-      height: "274px",
-      width: "274px",
+      height: "150px",
+      width: "150px",
       "&:hover": {
          cursor: "pointer",
          boxShadow: "0 0 0 64px rgba(255, 255, 255, 0.05)",
+      },
+      [theme.breakpoints.up("sm")]: {
+         height: "242px",
+         width: "242px",
+      },
+      [theme.breakpoints.up("lg")]: {
+         height: "274px",
+         width: "274px",
       },
    },
    bodyText: {
       marginBottom: theme.spacing(3),
       marginTop: theme.spacing(2),
       color: "#fff",
+      fontSize: theme.spacing(8),
    },
    blue: {
       color: theme.palette.text.secondary,
@@ -73,9 +88,10 @@ const useStyles = makeStyles((theme) => ({
    end: {
       justifyContent: "center",
       display: "flex",
-      [theme.breakpoints.up("sm")]: {
-         marginTop: theme.spacing(10),
-      },
+      marginTop: theme.spacing(10),
+      marginLeft: "auto",
+      marginRight: "auto",
+      [theme.breakpoints.up("sm")]: { marginLeft: 0, marginRight: 0 },
       [theme.breakpoints.up("lg")]: {
          justifyContent: "flex-end",
          marginTop: 0,
@@ -92,7 +108,7 @@ const Home = () => {
    return (
       <div className={classes.background}>
          <Grid container spacing={2} xs={10} className={classes.container}>
-            <Grid item xs={10} lg={6}>
+            <Grid item xs={10} lg={6} className={classes.center}>
                <div className={classes.textContainer}>
                   <Typography
                      variant="h5"

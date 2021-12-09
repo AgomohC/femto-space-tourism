@@ -168,7 +168,7 @@ const useStyles = makeStyles((theme) => ({
       color: theme.palette.text.primary,
    },
    mobileMenu: {
-      height: "100vh",
+      height: "100%",
       backgroundColor: alpha("#0b0d17", 0.95),
       [theme.breakpoints.up("sm")]: {
          display: "none",
