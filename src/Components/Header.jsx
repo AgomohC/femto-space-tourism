@@ -10,8 +10,11 @@ import {
    IconButton,
    makeStyles,
    alpha,
+   Fade,
 } from "@material-ui/core";
 import { Link } from "react-router-dom";
+
+// TODO: style link bottom on the desktop and add background effect to the aside on mobile
 const useStyles = makeStyles((theme) => ({
    desktopNav: {
       display: "none",
@@ -51,6 +54,8 @@ const useStyles = makeStyles((theme) => ({
       },
       backgroundColor: "transparent",
       padding: theme.spacing(3),
+      zIndex: 2,
+      position: "relative",
    },
    toolbar: {
       height: "100%",
@@ -72,14 +77,14 @@ const useStyles = makeStyles((theme) => ({
    line: {
       width: 473,
       marginRight: "-24px",
-      color: alpha("#0b0d17", 0.15),
+      color: alpha("#0b0d17", 0.45),
       display: "none",
       [theme.breakpoints.up("lg")]: {
          display: "block",
       },
    },
    navLinks: {
-      backgroundColor: alpha("#0b0d17", 0.15),
+      backgroundColor: alpha("#0b0d17", 0.45),
       height: "100%",
       display: "none",
       [theme.breakpoints.up("sm")]: {
@@ -138,7 +143,7 @@ const useStyles = makeStyles((theme) => ({
    },
    mobileMenu: {
       height: "100vh",
-      backgroundColor: alpha("#0b0d17", 0.15),
+      backgroundColor: alpha("#0b0d17", 0.95),
       [theme.breakpoints.up("sm")]: {
          display: "none",
       },
@@ -148,11 +153,13 @@ const useStyles = makeStyles((theme) => ({
       minWidth: "254px",
       width: "68%",
       padding: "24px",
+      zIndex: 3,
    },
    closeButton: {
       position: "absolute",
       top: "24px",
       right: "24px",
+      color: "#fff",
    },
 }));
 
@@ -177,7 +184,6 @@ const Header = () => {
                   <MenuIcon />
                </IconButton>
                <hr className={classes.line} />
-
                <Box className={classes.navLinks}>
                   <div className={classes.linksDiv}>
                      <Link to="/" className={classes.link}>
@@ -221,60 +227,62 @@ const Header = () => {
                color="inherit"
                onClick={() => setShowAside(true)}
             >
-               <MenuIcon color="white" />
+               <MenuIcon />
             </IconButton>
          </header>
          {showAside && (
-            <Box component="aside" className={classes.mobileMenu}>
-               <IconButton
-                  disableRipple
-                  disableFocusRipple
-                  onClick={() => setShowAside(false)}
-                  className={classes.closeButton}
-               >
-                  <CloseIcon />
-               </IconButton>
-               <Box className={classes.navLinksMobile}>
-                  <div>
-                     <Link to="/" className={classes.link}>
-                        <Typography
-                           variant="subtitle2"
-                           className={classes.linkMobile}
-                        >
-                           <span className={classes.linkSpanMobile}>00</span>
-                           Home
-                        </Typography>
-                     </Link>
-                     <Link to="/crew" className={classes.link}>
-                        <Typography
-                           variant="subtitle2"
-                           className={classes.linkMobile}
-                        >
-                           <span className={classes.linkSpanMobile}>01</span>
-                           Crew
-                        </Typography>
-                     </Link>
-                     <Link to="/destination" className={classes.link}>
-                        <Typography
-                           variant="subtitle2"
-                           className={classes.linkMobile}
-                        >
-                           <span className={classes.linkSpanMobile}>02</span>
-                           Destination
-                        </Typography>
-                     </Link>
-                     <Link to="/technology" className={classes.link}>
-                        <Typography
-                           variant="subtitle2"
-                           className={classes.linkMobile}
-                        >
-                           <span className={classes.linkSpanMobile}>03</span>
-                           Technology
-                        </Typography>
-                     </Link>
-                  </div>
+            <Fade in={showAside}>
+               <Box component="aside" className={classes.mobileMenu}>
+                  <IconButton
+                     disableRipple
+                     disableFocusRipple
+                     onClick={() => setShowAside(false)}
+                     className={classes.closeButton}
+                  >
+                     <CloseIcon />
+                  </IconButton>
+                  <Box className={classes.navLinksMobile}>
+                     <div>
+                        <Link to="/" className={classes.link}>
+                           <Typography
+                              variant="subtitle2"
+                              className={classes.linkMobile}
+                           >
+                              <span className={classes.linkSpanMobile}>00</span>
+                              Home
+                           </Typography>
+                        </Link>
+                        <Link to="/crew" className={classes.link}>
+                           <Typography
+                              variant="subtitle2"
+                              className={classes.linkMobile}
+                           >
+                              <span className={classes.linkSpanMobile}>01</span>
+                              Crew
+                           </Typography>
+                        </Link>
+                        <Link to="/destination" className={classes.link}>
+                           <Typography
+                              variant="subtitle2"
+                              className={classes.linkMobile}
+                           >
+                              <span className={classes.linkSpanMobile}>02</span>
+                              Destination
+                           </Typography>
+                        </Link>
+                        <Link to="/technology" className={classes.link}>
+                           <Typography
+                              variant="subtitle2"
+                              className={classes.linkMobile}
+                           >
+                              <span className={classes.linkSpanMobile}>03</span>
+                              Technology
+                           </Typography>
+                        </Link>
+                     </div>
+                  </Box>
                </Box>
-            </Box>
+            </Fade>
          )}
       </>
    );

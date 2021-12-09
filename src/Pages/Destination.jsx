@@ -1,6 +1,7 @@
 import React from "react";
 
-const Destination = (props) => {
+const Destination = () => {
+   console.log(2);
    return <div></div>;
 };
 
