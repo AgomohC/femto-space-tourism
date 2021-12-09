@@ -14,13 +14,14 @@ import {
 } from "@material-ui/core";
 import { Link } from "react-router-dom";
 
-// TODO: style link bottom on the desktop and add background effect to the aside on mobile
+// TODO: style link bottom on the desktop
 const useStyles = makeStyles((theme) => ({
    desktopNav: {
       display: "none",
       position: "relative",
       top: "0",
       left: "0",
+      boxShadow: "none",
       [theme.breakpoints.up("sm")]: {
          display: "flex",
          position: "absolute",
@@ -81,14 +82,36 @@ const useStyles = makeStyles((theme) => ({
       display: "none",
       [theme.breakpoints.up("lg")]: {
          display: "block",
+         position: "relative",
+         "&::after": {
+            content: "''",
+            position: "absolute",
+            filter: "blur(1px)",
+            width: 473,
+            height: 2,
+            background: alpha("#edd", 0.15),
+            top: 0,
+            left: 0,
+         },
       },
    },
    navLinks: {
       backgroundColor: alpha("#0b0d17", 0.45),
       height: "100%",
+      position: "relative",
       display: "none",
       [theme.breakpoints.up("sm")]: {
          display: "block",
+         "&::after": {
+            content: "''",
+            position: "absolute",
+            filter: "blur(1px)",
+            width: "100%",
+            height: 96,
+            background: alpha("#edd", 0.15),
+            top: 0,
+            left: 0,
+         },
       },
       minWidth: "70%",
       [theme.breakpoints.up("lg")]: {
@@ -96,6 +119,8 @@ const useStyles = makeStyles((theme) => ({
       },
    },
    navLinksMobile: {
+      zIndex: 99999,
+      position: "relative",
       marginTop: theme.spacing(10),
    },
    linksDiv: {
@@ -105,6 +130,7 @@ const useStyles = makeStyles((theme) => ({
       justifyContent: "space-evenly",
       alignItems: "center",
       position: "relative",
+      zIndex: 99999,
    },
    link: {
       textDecoration: "none",
@@ -153,19 +179,32 @@ const useStyles = makeStyles((theme) => ({
       minWidth: "254px",
       width: "68%",
       padding: "24px",
-      zIndex: 3,
+      zIndex: 99999,
+      "&::after": {
+         content: "''",
+         position: "absolute",
+         filter: "blur(1px)",
+         width: "100%",
+         height: "100vh",
+         background: alpha("#edd", 0.15),
+         top: 0,
+         left: 0,
+         zIndex: 1,
+      },
    },
    closeButton: {
       position: "absolute",
       top: "24px",
       right: "24px",
       color: "#fff",
+      zIndex: 99999,
    },
 }));
 
 const Header = () => {
    const classes = useStyles();
    const [showAside, setShowAside] = useState(false);
+
    return (
       <>
          <AppBar className={classes.desktopNav}>
@@ -220,15 +259,19 @@ const Header = () => {
                   <img src={logo} alt="logo svg" className={classes.logo} />
                </Link>
             </div>
-            <IconButton
-               className={classes.menuButton}
-               disableRipple
-               disableFocusRipple
-               color="inherit"
-               onClick={() => setShowAside(true)}
-            >
-               <MenuIcon />
-            </IconButton>
+            {showAside ? (
+               ""
+            ) : (
+               <IconButton
+                  className={classes.menuButton}
+                  disableRipple
+                  disableFocusRipple
+                  color="inherit"
+                  onClick={() => setShowAside(true)}
+               >
+                  <MenuIcon />
+               </IconButton>
+            )}
          </header>
          {showAside && (
             <Fade in={showAside}>
@@ -243,7 +286,11 @@ const Header = () => {
                   </IconButton>
                   <Box className={classes.navLinksMobile}>
                      <div>
-                        <Link to="/" className={classes.link}>
+                        <Link
+                           to="/"
+                           onClick={() => setShowAside(false)}
+                           className={classes.link}
+                        >
                            <Typography
                               variant="subtitle2"
                               className={classes.linkMobile}
@@ -252,7 +299,11 @@ const Header = () => {
                               Home
                            </Typography>
                         </Link>
-                        <Link to="/crew" className={classes.link}>
+                        <Link
+                           to="/crew"
+                           onClick={() => setShowAside(false)}
+                           className={classes.link}
+                        >
                            <Typography
                               variant="subtitle2"
                               className={classes.linkMobile}
@@ -261,7 +312,11 @@ const Header = () => {
                               Crew
                            </Typography>
                         </Link>
-                        <Link to="/destination" className={classes.link}>
+                        <Link
+                           to="/destination"
+                           onClick={() => setShowAside(false)}
+                           className={classes.link}
+                        >
                            <Typography
                               variant="subtitle2"
                               className={classes.linkMobile}
@@ -270,7 +325,11 @@ const Header = () => {
                               Destination
                            </Typography>
                         </Link>
-                        <Link to="/technology" className={classes.link}>
+                        <Link
+                           to="/technology"
+                           onClick={() => setShowAside(false)}
+                           className={classes.link}
+                        >
                            <Typography
                               variant="subtitle2"
                               className={classes.linkMobile}
