@@ -25,15 +25,29 @@ const useStyles = makeStyles((theme) => ({
       zIndex: 1,
    },
    container: {
-      display: "flex",
-      alignItems: "flex-end",
-      justifyContent: "space-between",
-      marginTop: "200px",
       marginLeft: "auto",
       marginRight: "auto",
+      marginTop: "200px",
+
+      [theme.breakpoints.up("sm")]: {
+         justifyContent: "center",
+      },
+      [theme.breakpoints.up("lg")]: {
+         display: "flex",
+         alignItems: "flex-end",
+         justifyContent: "space-between",
+      },
    },
    textContainer: {
       width: "450px",
+      textAlign: "center",
+      marginLeft: "auto",
+      marginRight: "auto",
+      [theme.breakpoints.up("lg")]: {
+         textAlign: "left",
+         marginLeft: 0,
+         marginRight: 0,
+      },
    },
    button: {
       borderRadius: "50%",
@@ -57,8 +71,15 @@ const useStyles = makeStyles((theme) => ({
       color: theme.palette.text.secondary,
    },
    end: {
-      justifyContent: "flex-end",
+      justifyContent: "center",
       display: "flex",
+      [theme.breakpoints.up("sm")]: {
+         marginTop: theme.spacing(10),
+      },
+      [theme.breakpoints.up("lg")]: {
+         justifyContent: "flex-end",
+         marginTop: 0,
+      },
    },
    link: {
       textDecoration: "none",
@@ -71,7 +92,7 @@ const Home = () => {
    return (
       <div className={classes.background}>
          <Grid container spacing={2} xs={10} className={classes.container}>
-            <Grid item xs={10} sm={6}>
+            <Grid item xs={10} lg={6}>
                <div className={classes.textContainer}>
                   <Typography
                      variant="h5"
