@@ -50,6 +50,9 @@ const theme = createTheme({
       primary: {
          main: "#0b0d17",
       },
+      secondary: {
+         main: "#ffffff",
+      },
    },
    breakpoints: {
       values: {

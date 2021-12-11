@@ -1,24 +1,20 @@
 import React from "react";
 import desktopImg from "../assets/home/background-home-desktop.jpg";
-
 import tabletImg from "../assets/home/background-home-tablet.jpg";
 import mobileImg from "../assets/home/background-home-mobile.jpg";
 import { makeStyles, Grid, Typography } from "@material-ui/core";
 import { Link } from "react-router-dom";
 const useStyles = makeStyles((theme) => ({
    background: {
-      overflowX: "hidden",
-      height: "100%",
-      minHeight: "667px",
+      height: "auto",
+      minHeight: "100%",
       width: "100%",
       backgroundImage: `url(${mobileImg})`,
       [theme.breakpoints.up("sm")]: {
          backgroundImage: `url(${tabletImg})`,
-         minHeight: "1024px",
       },
       [theme.breakpoints.up("lg")]: {
          backgroundImage: `url(${desktopImg})`,
-         minHeight: "900px",
       },
       backgroundPosition: "center",
       backgroundRepeat: "no-repeat",
@@ -28,6 +24,9 @@ const useStyles = makeStyles((theme) => ({
       top: 0,
       left: 0,
       zIndex: 1,
+      [theme.breakpoints.up("lg")]: {
+         paddingBottom: theme.spacing(1),
+      },
    },
    container: {
       marginLeft: "auto",
@@ -113,7 +112,7 @@ const Home = () => {
 
    return (
       <div className={classes.background}>
-         <Grid container spacing={2} xs={10} className={classes.container}>
+         <Grid container item spacing={2} xs={10} className={classes.container}>
             <Grid item xs={10} lg={6} className={classes.center}>
                <div className={classes.textContainer}>
                   <Typography

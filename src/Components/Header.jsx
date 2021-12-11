@@ -22,29 +22,30 @@ const useStyles = makeStyles((theme) => ({
       top: "0",
       left: "0",
       boxShadow: "none",
+      overflow: "hidden",
       [theme.breakpoints.up("sm")]: {
          display: "flex",
          position: "absolute",
-         width: "90vw",
+         width: "95%",
          height: 96,
-         left: "7.1vw",
+         left: "5%",
          top: 40,
          background: "transparent",
       },
       [theme.breakpoints.up("md")]: {
          display: "flex",
          position: "absolute",
-         width: "94vw",
+         width: "95%",
          height: 96,
-         left: "4vw",
+         left: "5%",
          top: 40,
       },
       [theme.breakpoints.up("lg")]: {
          display: "flex",
          position: "absolute",
-         width: "96vw",
+         width: "96%",
          height: 96,
-         left: "2.5vw",
+         left: "4%",
          top: 40,
       },
    },
@@ -233,16 +234,16 @@ const Header = () => {
                            HOME
                         </Typography>
                      </Link>
-                     <Link to="/crew" className={classes.link}>
-                        <Typography variant="subtitle2" color="initial">
-                           <span className={classes.linkSpan}>01</span>
-                           CREW
-                        </Typography>
-                     </Link>
                      <Link to="/destination" className={classes.link}>
                         <Typography variant="subtitle2" color="initial">
-                           <span className={classes.linkSpan}>02</span>
+                           <span className={classes.linkSpan}>01</span>
                            DESTINATION
+                        </Typography>
+                     </Link>
+                     <Link to="/crew" className={classes.link}>
+                        <Typography variant="subtitle2" color="initial">
+                           <span className={classes.linkSpan}>02</span>
+                           CREW
                         </Typography>
                      </Link>
                      <Link to="/technology" className={classes.link}>
