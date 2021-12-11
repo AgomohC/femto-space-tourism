@@ -12,22 +12,50 @@ import {
 import moonImg from "../assets/destination/image-moon.png";
 import marsImg from "../assets/destination/image-mars.png";
 import europaImg from "../assets/destination/image-europa.png";
-import titanImg from "../assets/destination/image-europa.png";
+import titanImg from "../assets/destination/image-titan.png";
 const imgArray = [moonImg, marsImg, europaImg, titanImg];
 const useStyles = makeStyles((theme) => ({
+   introContainer: {
+      marginLeft: "auto",
+      marginRight: "auto",
+      marginBottom: theme.spacing(8),
+   },
+   contentContainer: {
+      marginLeft: "auto",
+      marginRight: "auto",
+      justifyContent: "space-between",
+   },
    whiteText: {
+      color: theme.palette.text.primary,
+   },
+   bigText: {
+      marginTop: theme.spacing(5),
+      marginBottom: theme.spacing(1),
       color: theme.palette.text.primary,
    },
    bodyText: {
       color: theme.palette.text.secondary,
    },
    numText: {
+      color: alpha(theme.palette.text.secondary, 0.65),
       display: "inline-block",
       marginRight: theme.spacing(4),
    },
    imgContainer: {
-      width: "445px",
-      height: "445px",
+      width: "170px",
+      height: "170px",
+      marginLeft: "auto",
+      marginRight: "auto",
+      boxShadow: theme.shadows[12],
+      borderRadius: "50%",
+      [theme.breakpoints.up("sm")]: {
+         width: "300px",
+         height: "300px",
+      },
+      [theme.breakpoints.up("lg")]: {
+         width: "445px",
+         height: "445px",
+      },
    },
    img: {
       width: "100%",
@@ -36,6 +64,8 @@ const useStyles = makeStyles((theme) => ({
    line: {
       width: "100%",
       color: alpha("#fff", 0.25),
+      marginTop: theme.spacing(6),
+      marginBottom: theme.spacing(2),
    },
 }));
 
@@ -64,7 +94,7 @@ const DestinationBody = () => {
    };
    return (
       <>
-         <Grid item xs={12}>
+         <Grid item xs={12} className={classes.introContainer}>
             <Typography
                variant="h5"
                component="h4"
@@ -75,18 +105,17 @@ const DestinationBody = () => {
                PICK YOUR DESTINATION
             </Typography>
          </Grid>
-         <Grid item container xs={12}>
+         <Grid item container xs={12} className={classes.contentContainer}>
             <Grid item xs={10} lg={6}>
                <div className={classes.imgContainer}>
                   <img
                      className={classes.img}
-                     // src={currentInfo.images.png}
                      alt={currentInfo.name}
                      src={img}
                   />
                </div>
             </Grid>
-            <Grid item xs={10} lg={6}>
+            <Grid item xs={10} lg={5}>
                <Tabs
                   value={currentTab}
                   onChange={handleChange}
@@ -96,7 +125,7 @@ const DestinationBody = () => {
                      <TabEdit key={tabName} label={tabName} />
                   ))}
                </Tabs>
-               <Typography variant="h1" className={classes.whiteText}>
+               <Typography variant="h2" className={classes.bigText}>
                   {currentInfo.name.toUpperCase()}
                </Typography>
                <Typography

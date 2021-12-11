@@ -25,16 +25,16 @@ const useStyles = makeStyles((theme) => ({
       top: 0,
       left: 0,
       zIndex: 1,
-      paddingBottom: theme.spacing(5),
+      paddingBottom: theme.spacing(10),
    },
    container: {
       marginLeft: "auto",
       marginRight: "auto",
       marginTop: "100px",
 
-      // [theme.breakpoints.up("sm")]: {
-      //    marginTop: "200px",
-      // },
+      [theme.breakpoints.up("sm")]: {
+         marginTop: "240px",
+      },
    },
 }));
 
