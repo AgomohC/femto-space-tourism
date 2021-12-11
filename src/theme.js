@@ -35,7 +35,6 @@ const theme = createTheme({
       },
       body1: {
          letterSpacing: 2.5,
-
          lineHeight: 1.65,
       },
       subtitle1: {

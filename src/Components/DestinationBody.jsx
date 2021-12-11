@@ -25,13 +25,35 @@ const useStyles = makeStyles((theme) => ({
       marginRight: "auto",
       justifyContent: "space-between",
    },
+   infoContainer: {
+      marginLeft: "auto",
+      marginRight: "auto",
+      display: "flex",
+      textAlign: "center",
+      [theme.breakpoints.up("lg")]: {
+         textAlign: "left",
+      },
+   },
    whiteText: {
       color: theme.palette.text.primary,
+   },
+   infoText: {
+      color: theme.palette.text.primary,
+      textAlign: "center",
+      [theme.breakpoints.down("sm")]: {
+         fontSize: "18px",
+      },
+      [theme.breakpoints.up("lg")]: {
+         textAlign: "left",
+      },
    },
    bigText: {
       marginTop: theme.spacing(5),
       marginBottom: theme.spacing(1),
       color: theme.palette.text.primary,
+      [theme.breakpoints.down("sm")]: {
+         fontSize: "72px",
+      },
    },
    bodyText: {
       color: theme.palette.text.secondary,
@@ -40,6 +62,13 @@ const useStyles = makeStyles((theme) => ({
       color: alpha(theme.palette.text.secondary, 0.65),
       display: "inline-block",
       marginRight: theme.spacing(4),
+      [theme.breakpoints.down("sm")]: {
+         marginRight: theme.spacing(2),
+      },
+   },
+   imgWrapper: {
+      marginLeft: "auto",
+      marginRight: "auto",
    },
    imgContainer: {
       width: "170px",
@@ -74,6 +103,9 @@ const TabEdit = withStyles((theme) => ({
       fontSize: "16px",
       letterSpacing: 2.7,
       minWidth: theme.spacing(10),
+      [theme.breakpoints.down("sm")]: {
+         minWidth: theme.spacing(4),
+      },
       "&:hover": {
          color: "#fff",
       },
@@ -99,14 +131,14 @@ const DestinationBody = () => {
                variant="h5"
                component="h4"
                color="secondary"
-               className={classes.whiteText}
+               className={classes.infoText}
             >
                <span className={classes.numText}>01</span>
                PICK YOUR DESTINATION
             </Typography>
          </Grid>
          <Grid item container xs={12} className={classes.contentContainer}>
-            <Grid item xs={10} lg={6}>
+            <Grid item xs={10} lg={6} className={classes.introContainer}>
                <div className={classes.imgContainer}>
                   <img
                      className={classes.img}
@@ -115,7 +147,7 @@ const DestinationBody = () => {
                   />
                </div>
             </Grid>
-            <Grid item xs={10} lg={5}>
+            <Grid item xs={10} lg={5} className={classes.introContainer}>
                <Tabs
                   value={currentTab}
                   onChange={handleChange}
@@ -136,8 +168,14 @@ const DestinationBody = () => {
                   {currentInfo.description}
                </Typography>
                <hr className={classes.line} />
-               <Grid item container xs={12} spacing={3}>
-                  <Grid item xs={6}>
+               <Grid
+                  item
+                  container
+                  xs={12}
+                  spacing={3}
+                  className={classes.infoContainer}
+               >
+                  <Grid item xs={12} sm={6}>
                      <Typography
                         variant="subtitle1"
                         className={classes.whiteText}
@@ -148,7 +186,7 @@ const DestinationBody = () => {
                         {currentInfo.distance.toUpperCase()}
                      </Typography>
                   </Grid>
-                  <Grid item xs={6}>
+                  <Grid item xs={12} sm={6}>
                      <Typography
                         variant="subtitle1"
                         className={classes.whiteText}

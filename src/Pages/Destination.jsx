@@ -30,9 +30,11 @@ const useStyles = makeStyles((theme) => ({
    container: {
       marginLeft: "auto",
       marginRight: "auto",
-      marginTop: "100px",
-
+      marginTop: "120px",
       [theme.breakpoints.up("sm")]: {
+         marginTop: "180px",
+      },
+      [theme.breakpoints.up("lg")]: {
          marginTop: "240px",
       },
    },
