@@ -100,10 +100,12 @@ const useStyles = makeStyles((theme) => ({
       height: "100%",
       position: "relative",
       display: "none",
+
       [theme.breakpoints.up("sm")]: {
          display: "block",
          "&::after": {
             content: "''",
+
             position: "absolute",
             filter: "blur(1px)",
             width: "100%",

@@ -7,14 +7,18 @@ import { makeStyles, Grid, Typography } from "@material-ui/core";
 import { Link } from "react-router-dom";
 const useStyles = makeStyles((theme) => ({
    background: {
+      overflow: "hidden",
       height: "100%",
+      minHeight: "667px",
       width: "100%",
       backgroundImage: `url(${mobileImg})`,
       [theme.breakpoints.up("sm")]: {
          backgroundImage: `url(${tabletImg})`,
+         minHeight: "1024px",
       },
       [theme.breakpoints.up("lg")]: {
          backgroundImage: `url(${desktopImg})`,
+         minHeight: "900px",
       },
       backgroundPosition: "center",
       backgroundRepeat: "no-repeat",
@@ -80,7 +84,9 @@ const useStyles = makeStyles((theme) => ({
       marginBottom: theme.spacing(3),
       marginTop: theme.spacing(2),
       color: "#fff",
-      fontSize: theme.spacing(8),
+      [theme.breakpoints.down("sm")]: {
+         fontSize: theme.spacing(8),
+      },
    },
    blue: {
       color: theme.palette.text.secondary,
