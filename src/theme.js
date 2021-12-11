@@ -33,6 +33,11 @@ const theme = createTheme({
          fontSize: "28px",
          fontFamily: ["Bellefair", "serif"].join(","),
       },
+      body1: {
+         letterSpacing: 2.5,
+
+         lineHeight: 1.65,
+      },
       subtitle1: {
          fontSize: "14px",
          letterSpacing: 2.35,

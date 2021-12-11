@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
       left: 0,
       zIndex: 1,
       [theme.breakpoints.up("lg")]: {
-         paddingBottom: theme.spacing(1),
+         paddingBottom: theme.spacing(10),
       },
    },
    container: {
@@ -130,7 +130,7 @@ const Home = () => {
                      SPACE
                   </Typography>
 
-                  <Typography variant="subtitle1" className={classes.blue}>
+                  <Typography variant="body1" className={classes.blue}>
                      Lets face it; if you want to go to space, you might as well
                      genuinely go to outer space and not hover kind of on the
                      edge of it. Well sit back, and relax because we'll give you
