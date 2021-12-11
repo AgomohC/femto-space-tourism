@@ -31,15 +31,17 @@ const useStyles = makeStyles((theme) => ({
    container: {
       marginLeft: "auto",
       marginRight: "auto",
-      marginTop: "100px",
+      marginTop: "120px",
 
       [theme.breakpoints.up("sm")]: {
          justifyContent: "center",
-         marginTop: "200px",
+         marginTop: "180px",
       },
       [theme.breakpoints.up("lg")]: {
          display: "flex",
          alignItems: "flex-end",
+         marginTop: "240px",
+
          justifyContent: "space-between",
       },
    },
