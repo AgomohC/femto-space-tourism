@@ -13,15 +13,31 @@ const useStyles = makeStyles((theme) => ({
       marginLeft: "auto",
       marginRight: "auto",
    },
+   circleContainer: {
+      display: "flex",
+      justifyContent: "center",
+      marginLeft: "auto",
+      marginRight: "auto",
+      [theme.breakpoints.up("lg")]: {
+         textAlign: "left",
+         marginLeft: 0,
+         marginRight: 0,
+         display: "block",
+      },
+   },
    introContainerImg: {
       marginLeft: "auto",
       marginRight: "auto",
-      height: "100%",
       display: "flex",
-      alignItems: "flex-end",
+      [theme.breakpoints.up("lg")]: {
+         height: "72%",
+         alignItems: "flex-end",
+         alignSelf: "flex-end",
+      },
    },
    introContainerBottom: {
       marginLeft: "auto",
+      marginBottom: theme.spacing(10),
       marginRight: "auto",
    },
    contentContainer: {
@@ -32,20 +48,36 @@ const useStyles = makeStyles((theme) => ({
    whiteText: {
       color: theme.palette.text.primary,
       marginBottom: theme.spacing(4),
+      textAlign: "center",
+      marginLeft: "auto",
+      marginRight: "auto",
+      [theme.breakpoints.up("lg")]: {
+         textAlign: "left",
+         marginLeft: 0,
+         marginRight: 0,
+      },
+      [theme.breakpoints.down("sm")]: {
+         fontSize: "32px",
+      },
    },
    infoText: {
       color: theme.palette.text.primary,
-      textAlign: "center",
+      textAlign: "left",
       [theme.breakpoints.down("sm")]: {
          fontSize: "18px",
-      },
-      [theme.breakpoints.up("lg")]: {
-         textAlign: "left",
       },
    },
    bodyText: {
       color: theme.palette.text.secondary,
       marginBottom: "120px",
+      textAlign: "center",
+      marginLeft: "auto",
+      marginRight: "auto",
+      [theme.breakpoints.up("lg")]: {
+         textAlign: "left",
+         marginLeft: 0,
+         marginRight: 0,
+      },
    },
    numText: {
       color: alpha(theme.palette.text.primary, 0.35),
@@ -59,6 +91,17 @@ const useStyles = makeStyles((theme) => ({
       color: alpha(theme.palette.text.primary, 0.35),
       marginTop: theme.spacing(2),
       marginBottom: theme.spacing(2),
+      textAlign: "center",
+      marginLeft: "auto",
+      marginRight: "auto",
+      [theme.breakpoints.down("sm")]: {
+         fontSize: "24px",
+      },
+      [theme.breakpoints.up("lg")]: {
+         textAlign: "left",
+         marginLeft: 0,
+         marginRight: 0,
+      },
    },
 
    imgContainer: {
@@ -114,6 +157,8 @@ const useStyles = makeStyles((theme) => ({
             : alpha(theme.palette.text.primary, 0.15),
    },
    container: {
+      marginLeft: "auto",
+      marginRight: "auto",
       marginTop: "120px",
       [theme.breakpoints.up("sm")]: {
          marginTop: "180px",
@@ -140,7 +185,7 @@ const CrewBody = (props) => {
          if (currentTab === 3) {
             setCurrentTab(0);
          }
-      }, 5000);
+      }, 10000);
       return () => clearInterval(selectTab);
    }, [currentTab]);
 
@@ -181,7 +226,7 @@ const CrewBody = (props) => {
                <Typography variant="body1" className={classes.bodyText}>
                   {currentInfo.bio}
                </Typography>
-               <div>
+               <div className={classes.circleContainer}>
                   <div
                      className={classNames(
                         classes.circle,
@@ -212,7 +257,7 @@ const CrewBody = (props) => {
                   ></div>
                </div>
             </Grid>
-            <Grid item xs={10} lg={4} className={classes.introContainerImg}>
+            <Grid item xs={10} lg={5} className={classes.introContainerImg}>
                <div className={classes.imgContainer}>
                   <img
                      className={classes.img}

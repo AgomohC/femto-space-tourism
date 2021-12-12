@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
    },
    infoText: {
       color: theme.palette.text.primary,
-      textAlign: "center",
+      textAlign: "left",
       [theme.breakpoints.down("sm")]: {
          fontSize: "18px",
       },

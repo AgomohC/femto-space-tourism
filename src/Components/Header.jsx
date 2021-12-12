@@ -303,19 +303,6 @@ const Header = () => {
                            </Typography>
                         </Link>
                         <Link
-                           to="/crew"
-                           onClick={() => setShowAside(false)}
-                           className={classes.link}
-                        >
-                           <Typography
-                              variant="subtitle2"
-                              className={classes.linkMobile}
-                           >
-                              <span className={classes.linkSpanMobile}>01</span>
-                              CREW
-                           </Typography>
-                        </Link>
-                        <Link
                            to="/destination"
                            onClick={() => setShowAside(false)}
                            className={classes.link}
@@ -324,8 +311,21 @@ const Header = () => {
                               variant="subtitle2"
                               className={classes.linkMobile}
                            >
-                              <span className={classes.linkSpanMobile}>02</span>
+                              <span className={classes.linkSpanMobile}>01</span>
                               DESTINATION
+                           </Typography>
+                        </Link>
+                        <Link
+                           to="/crew"
+                           onClick={() => setShowAside(false)}
+                           className={classes.link}
+                        >
+                           <Typography
+                              variant="subtitle2"
+                              className={classes.linkMobile}
+                           >
+                              <span className={classes.linkSpanMobile}>02</span>
+                              CREW
                            </Typography>
                         </Link>
                         <Link
