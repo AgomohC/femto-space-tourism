@@ -1,5 +1,5 @@
 import React from "react";
-import TechBody from "../Components/CrewBody";
+import TechBody from "../Components/TechBody";
 import { Grid, makeStyles } from "@material-ui/core";
 import desktopImg from "../assets/technology/background-technology-desktop.jpg";
 import tabletImg from "../assets/technology/background-technology-tablet.jpg";
@@ -16,6 +16,8 @@ const useStyles = makeStyles((theme) => ({
       },
       [theme.breakpoints.up("lg")]: {
          backgroundImage: `url(${desktopImg})`,
+         display: "flex",
+         justifyContent: "flex-end",
       },
       backgroundPosition: "center",
       backgroundRepeat: "no-repeat",
@@ -28,8 +30,6 @@ const useStyles = makeStyles((theme) => ({
       paddingBottom: theme.spacing(10),
    },
    container: {
-      marginLeft: "auto",
-      marginRight: "auto",
       marginTop: "120px",
       [theme.breakpoints.up("sm")]: {
          marginTop: "180px",
@@ -44,7 +44,7 @@ const Technology = () => {
    const classes = useStyles();
    return (
       <Grid container className={classes.background}>
-         <Grid item container xs={10} className={classes.container}>
+         <Grid item container xs={11} className={classes.container}>
             <TechBody />
          </Grid>
       </Grid>

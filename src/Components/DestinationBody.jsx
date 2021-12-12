@@ -130,7 +130,6 @@ const DestinationBody = () => {
             <Typography
                variant="h5"
                component="h4"
-               color="secondary"
                className={classes.infoText}
             >
                <span className={classes.numText}>01</span>

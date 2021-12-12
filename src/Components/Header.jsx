@@ -14,7 +14,8 @@ import {
 } from "@material-ui/core";
 import { Link } from "react-router-dom";
 
-// TODO: style link bottom on the desktop
+// TODO: style link bottom on the desktop replace appbar after filter with backdrop filter
+
 const useStyles = makeStyles((theme) => ({
    desktopNav: {
       display: "none",
