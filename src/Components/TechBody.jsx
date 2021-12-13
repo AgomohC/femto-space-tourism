@@ -15,9 +15,12 @@ const backgroundPortrait = [vehiclePortrait, portPortrait, capsulePortrait];
 
 const useStyles = makeStyles((theme) => ({
    introContainer: {
-      marginLeft: "auto",
       marginRight: "auto",
       marginBottom: theme.spacing(8),
+      marginLeft: theme.spacing(10),
+      [theme.breakpoints.up("lg")]: {
+         marginLeft: "auto",
+      },
    },
    contentContainer: {
       marginLeft: "auto",
@@ -38,12 +41,19 @@ const useStyles = makeStyles((theme) => ({
       [theme.breakpoints.down("sm")]: {
          fontSize: "18px",
       },
-      [theme.breakpoints.up("lg")]: {
-         textAlign: "left",
-      },
    },
    bodyText: {
       color: theme.palette.text.secondary,
+      textAlign: "center",
+      maxWidth: "72vw",
+      marginLeft: "auto",
+      marginRight: "auto",
+      [theme.breakpoints.up("lg")]: {
+         textAlign: "left",
+         maxWidth: "none",
+         marginLeft: 0,
+         marginRight: 0,
+      },
    },
    img: {
       display: "none",
@@ -54,17 +64,23 @@ const useStyles = makeStyles((theme) => ({
          justifyContent: "flex-end",
       },
    },
-   imgContainerDesktop: {
+   imgMobile: {
+      display: "flex",
+      height: "auto",
+      width: "100%",
+      boxShadow: theme.shadows[12],
       [theme.breakpoints.up("lg")]: {
-         height: "100%",
-         width: "100%",
+         display: "none",
       },
    },
+
    desktopImg: {
-      [theme.breakpoints.up("lg")]: {
-         height: "100%",
-         width: "100%",
-      },
+      height: "100%",
+      width: "100%",
+   },
+   mobileImg: {
+      height: "100%",
+      width: "100%",
    },
 
    whiteText: {
@@ -85,8 +101,18 @@ const useStyles = makeStyles((theme) => ({
    termText: {
       color: theme.palette.text.primary,
       marginBottom: theme.spacing(2),
+      textAlign: "center",
+      [theme.breakpoints.up("lg")]: {
+         textAlign: "left",
+      },
    },
    numDiv: {
+      width: "40px",
+      height: "40px",
+      [theme.breakpoints.up("sm")]: {
+         width: "60px",
+         height: "60px",
+      },
       [theme.breakpoints.up("lg")]: {
          width: "80px",
          height: "80px",
@@ -102,6 +128,9 @@ const useStyles = makeStyles((theme) => ({
          backgroundColor: theme.palette.text.primary,
          color: "#0b0d17",
       },
+      [theme.breakpoints.down("sm")]: {
+         fontSize: "18px",
+      },
    },
    activeTab0: {
       color: (currentVehicle) =>
@@ -110,9 +139,18 @@ const useStyles = makeStyles((theme) => ({
          currentVehicle === 0 ? "#fff" : "transparent",
    },
    activeTab1: {
+      marginLeft: theme.spacing(1),
+      marginRight: theme.spacing(1),
+
+      [theme.breakpoints.up("sm")]: {
+         marginLeft: theme.spacing(2),
+         marginRight: theme.spacing(2),
+      },
       [theme.breakpoints.up("lg")]: {
          marginBottom: theme.spacing(4),
          marginTop: theme.spacing(4),
+         marginLeft: 0,
+         marginRight: 0,
       },
       color: (currentVehicle) =>
          currentVehicle === 1 ? "#0b0d17" : theme.palette.text.primary,
@@ -128,6 +166,19 @@ const useStyles = makeStyles((theme) => ({
    align: {
       [theme.breakpoints.up("lg")]: {
          alignItems: "center",
+      },
+   },
+   justify: {
+      display: "flex",
+      justifyContent: "center",
+      marginBottom: theme.spacing(4),
+      marginTop: theme.spacing(4),
+      [theme.breakpoints.up("sm")]: {
+         marginBottom: theme.spacing(8),
+         marginTop: theme.spacing(8),
+      },
+      [theme.breakpoints.up("lg")]: {
+         display: "block",
       },
    },
 }));
@@ -171,9 +222,12 @@ const TechBody = (props) => {
                SPACE LAUNCH 101
             </Typography>
          </Grid>
+         <Grid item xs={12} className={classes.imgMobile}>
+            <img src={landscapeImg} className={classes.mobileImg} alt="" />
+         </Grid>
          <Grid item container xs={12} className={classes.contentContainer}>
             <Grid item container xs={12} lg={8} className={classes.align}>
-               <Grid item xs={2}>
+               <Grid item xs={12} lg={2} className={classes.justify}>
                   <div
                      className={classNames(classes.numDiv, classes.activeTab0)}
                      onClick={clickHandler0}
@@ -193,13 +247,14 @@ const TechBody = (props) => {
                      3
                   </div>
                </Grid>
-               <Grid item xs={8}>
+               <Grid item xs={12} lg={8}>
                   <Typography className={classes.termText} variant="subtitle2">
                      THE TERMINOLOGY...
                   </Typography>
                   <Typography variant="h3" className={classes.whiteText}>
                      {currentData.name.toUpperCase()}
                   </Typography>
+
                   <Typography
                      variant="body1"
                      color="initial"
@@ -209,15 +264,8 @@ const TechBody = (props) => {
                   </Typography>
                </Grid>
             </Grid>
-            <Grid item xs={12} lg={4} className={classes.img}>
-               {/* TODO: style img container */}
-               <div className={classes.imgContainerDesktop}>
-                  <img
-                     src={portraitImg}
-                     className={classes.desktopImg}
-                     alt=""
-                  />
-               </div>
+            <Grid item lg={4} className={classes.img}>
+               <img src={portraitImg} className={classes.desktopImg} alt="" />
             </Grid>
          </Grid>
       </>

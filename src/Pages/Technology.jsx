@@ -44,7 +44,7 @@ const Technology = () => {
    const classes = useStyles();
    return (
       <Grid container className={classes.background}>
-         <Grid item container xs={11} className={classes.container}>
+         <Grid item container xs={12} lg={11} className={classes.container}>
             <TechBody />
          </Grid>
       </Grid>
