@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import data from "../data";
 import {
    Grid,
@@ -121,6 +121,17 @@ const DestinationBody = () => {
    const currentInfo = destinations[currentTab];
    const img = imgArray[currentTab];
 
+   useEffect(() => {
+      const selectTab = setInterval(() => {
+         if (currentTab < tabNames.length - 1) {
+            setCurrentTab((currentTab) => currentTab + 1);
+         }
+         if (currentTab === tabNames.length - 1) {
+            setCurrentTab(0);
+         }
+      }, 10000);
+      return () => clearInterval(selectTab);
+   }, [currentTab, tabNames]);
    const handleChange = (event, newValue) => {
       setCurrentTab(newValue);
    };
