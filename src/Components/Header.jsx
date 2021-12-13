@@ -80,18 +80,19 @@ const useStyles = makeStyles((theme) => ({
    line: {
       width: 473,
       marginRight: "-24px",
-      color: alpha("#0b0d17", 0.45),
       display: "none",
       [theme.breakpoints.up("lg")]: {
          display: "block",
          position: "relative",
+         backgroundColor: alpha("#0b0d17", 0.45),
+         height: 2,
          "&::after": {
             content: "''",
             position: "absolute",
             filter: "blur(1px)",
+            backgroundColor: alpha("#edd", 0.15),
             width: 473,
             height: 2,
-            background: alpha("#edd", 0.15),
             top: 0,
             left: 0,
          },
@@ -226,7 +227,7 @@ const Header = () => {
                >
                   <MenuIcon />
                </IconButton>
-               <hr className={classes.line} />
+               <div className={classes.line} />
                <Box className={classes.navLinks}>
                   <div className={classes.linksDiv}>
                      <Link to="/" className={classes.link}>
