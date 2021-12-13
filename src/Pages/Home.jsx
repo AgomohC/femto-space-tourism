@@ -24,9 +24,7 @@ const useStyles = makeStyles((theme) => ({
       top: 0,
       left: 0,
       zIndex: 1,
-      [theme.breakpoints.up("lg")]: {
-         paddingBottom: theme.spacing(10),
-      },
+      paddingBottom: theme.spacing(10),
    },
    container: {
       marginLeft: "auto",
@@ -41,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
          display: "flex",
          alignItems: "flex-end",
          marginTop: "240px",
-
+         paddingBottom: 0,
          justifyContent: "space-between",
       },
    },
@@ -72,6 +70,7 @@ const useStyles = makeStyles((theme) => ({
          cursor: "pointer",
          boxShadow: "0 0 0 64px rgba(255, 255, 255, 0.05)",
       },
+
       [theme.breakpoints.up("sm")]: {
          height: "242px",
          width: "242px",
@@ -107,13 +106,18 @@ const useStyles = makeStyles((theme) => ({
    link: {
       textDecoration: "none",
    },
+   linkText: {
+      [theme.breakpoints.down("sm")]: {
+         fontSize: "18px",
+      },
+   },
 }));
 
 const Home = () => {
    const classes = useStyles();
 
    return (
-      <div className={classes.background}>
+      <Grid className={classes.background}>
          <Grid container item spacing={2} xs={10} className={classes.container}>
             <Grid item xs={10} lg={6} className={classes.center}>
                <div className={classes.textContainer}>
@@ -143,14 +147,18 @@ const Home = () => {
             <Grid item xs={10} sm={6} className={classes.end}>
                <Link to="/destination" className={classes.link}>
                   <div className={classes.button}>
-                     <Typography variant="h6" color="primary">
+                     <Typography
+                        variant="h6"
+                        color="primary"
+                        className={classes.linkText}
+                     >
                         EXPLORE
                      </Typography>
                   </div>
                </Link>
             </Grid>
          </Grid>
-      </div>
+      </Grid>
    );
 };
 
