@@ -46,22 +46,27 @@ const useStyles = makeStyles((theme) => ({
       color: theme.palette.text.secondary,
    },
    img: {
+      display: "none",
       [theme.breakpoints.up("lg")]: {
          height: "100%",
          display: "flex",
+         boxShadow: theme.shadows[12],
          justifyContent: "flex-end",
       },
    },
-   imgContainer: {
-      backgroundPosition: "center",
-      backgroundRepeat: "no-repeat",
-      backgroundSize: "cover",
-      backgroundAttachment: "fixed",
+   imgContainerDesktop: {
       [theme.breakpoints.up("lg")]: {
          height: "100%",
          width: "100%",
       },
    },
+   desktopImg: {
+      [theme.breakpoints.up("lg")]: {
+         height: "100%",
+         width: "100%",
+      },
+   },
+
    whiteText: {
       color: theme.palette.text.primary,
       marginBottom: theme.spacing(4),
@@ -205,7 +210,14 @@ const TechBody = (props) => {
                </Grid>
             </Grid>
             <Grid item xs={12} lg={4} className={classes.img}>
-               <div className={classes.imgContainer}></div>
+               {/* TODO: style img container */}
+               <div className={classes.imgContainerDesktop}>
+                  <img
+                     src={portraitImg}
+                     className={classes.desktopImg}
+                     alt=""
+                  />
+               </div>
             </Grid>
          </Grid>
       </>
