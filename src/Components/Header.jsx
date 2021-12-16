@@ -174,12 +174,12 @@ const useStyles = makeStyles((theme) => ({
       color: theme.palette.text.primary,
    },
    mobileMenu: {
-      height: "100%",
+      height: "100vh",
       backgroundColor: alpha("#0b0d17", 0.95),
       [theme.breakpoints.up("sm")]: {
          display: "none",
       },
-      position: "absolute",
+      position: "fixed",
       top: "0",
       right: "0",
       minWidth: "254px",
@@ -281,7 +281,7 @@ const Header = () => {
          </header>
          {showAside && (
             <Fade in={showAside}>
-               <Box component="aside" className={classes.mobileMenu}>
+               <div component="aside" className={classes.mobileMenu}>
                   <IconButton
                      disableRipple
                      disableFocusRipple
@@ -346,7 +346,7 @@ const Header = () => {
                         </Link>
                      </div>
                   </Box>
-               </Box>
+               </div>
             </Fade>
          )}
       </>

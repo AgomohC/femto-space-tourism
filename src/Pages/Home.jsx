@@ -16,6 +16,7 @@ const useStyles = makeStyles((theme) => ({
       [theme.breakpoints.up("lg")]: {
          backgroundImage: `url(${desktopImg})`,
       },
+
       backgroundPosition: "center",
       backgroundRepeat: "no-repeat",
       backgroundSize: "cover",
