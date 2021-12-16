@@ -106,9 +106,8 @@ const useStyles = makeStyles((theme) => ({
 
       [theme.breakpoints.up("sm")]: {
          display: "block",
-         "&::after": {
+         "&::before": {
             content: "''",
-
             position: "absolute",
             filter: "blur(1px)",
             width: "100%",
@@ -140,6 +139,7 @@ const useStyles = makeStyles((theme) => ({
    link: {
       textDecoration: "none",
       color: "#fff",
+      position: "relative",
       "&:hover": {
          borderBottom: "2px solid #fff",
       },
@@ -151,6 +151,7 @@ const useStyles = makeStyles((theme) => ({
       fontWeight: "bold",
       marginRight: theme.spacing(1),
       display: "none",
+      transition: "all 1s ease-in",
       [theme.breakpoints.up("lg")]: {
          display: "inline-block",
       },

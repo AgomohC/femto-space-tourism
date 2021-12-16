@@ -29,6 +29,10 @@ const useStyles = makeStyles((theme) => ({
       marginLeft: "auto",
       marginRight: "auto",
       display: "flex",
+      [theme.breakpoints.down("sm")]: {
+         alignItems: "flex-end",
+         alignSelf: "flex-end",
+      },
       [theme.breakpoints.up("lg")]: {
          height: "72%",
          alignItems: "flex-end",
